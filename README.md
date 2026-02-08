@@ -72,6 +72,9 @@ mvn clean install
 
 Dockerized backend
 
+Deployment
+live url
+https://textile-ui.vercel.app
 Deployed using container-based hosting (Render / Docker runtime)
 mvn spring-boot:run
 

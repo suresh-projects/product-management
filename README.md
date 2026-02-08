@@ -1,79 +1,77 @@
-# 🧵 Textile Product Management System
+# Textile Product Management – Backend
 
-A full-stack web application for managing textile products and customer orders.
-The project is built using **React (Frontend)** and **Spring Boot (Backend)** with
-cloud deployments and CI/CD practices.
+## 📌 Project Overview
+This is the backend service for the **Textile Product Management System**.  
+It is built using **Spring Boot** and provides REST APIs to manage products and orders.
 
----
-
-## 🏗️ Project Architecture
-
-This project follows a **separation of concerns** approach:
-
-- **Frontend** – React application (UI)
-- **Backend** – Spring Boot REST API
-- Both are maintained as **separate repositories** and deployed independently
-
+The backend uses an **H2 in-memory database** (NO MySQL) for simplicity and fast setup, making it ideal for demos and academic evaluation.
 
 ---
 
-## 🌐 Live Applications
-
-### Frontend (Vercel)
-🔗 https://textile-gt9sxn0cm-productmanagement1.vercel.app
-
-### Backend (Render)
-🔗 https://product-management-bxi8.onrender.com/api
-
----
-
-## 📦 Repositories
-
-- **Frontend Repository**  
-  https://github.com/suresh-projects/textile-ui
-
-- **Backend Repository**  
-  https://github.com/suresh-projects/product-management
-
----
-
-## ✨ Features
-
-### Product Management
-- Add new textile products
-- Update product details
-- Delete products
-- Search products
-
-### Order Management
-- Place orders
-- Auto calculate total price
-- View order history
+## 🏗️ Architecture
+Client (React Frontend)
+|
+| REST API
+v
+Spring Boot Backend
+|
+v
+H2 Database
 
 ---
 
 ## 🛠️ Tech Stack
-
-### Frontend
-- React
-- JavaScript
-- HTML / CSS
-- Axios / Fetch API
-- Vercel Deployment
-
-### Backend
-- Java Spring Boot
-- REST APIs
-- JPA / Hibernate
-- MySQL
+- Java 17
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- H2 In-Memory Database
 - Docker
-- Render Deployment
+- Maven
 
 ---
 
-## ⚙️ Environment Configuration
+## 🗄️ Database Used
+- **H2 Database (In-Memory)**
+- No external database required
+- Data resets on application restart
 
-Frontend uses environment variables for API configuration:
+### H2 Console
+- URL: `http://localhost:8081/h2-console`
+- JDBC URL: `jdbc:h2:mem:testdb`
+- Username: `sa`
+- Password: *(empty)*
 
-```env
-REACT_APP_API_BASE_URL=<backend-api-url>
+---
+
+## 🚀 API Endpoints
+
+### Products
+| Method | Endpoint | Description |
+|------|---------|------------|
+| GET | `/api/products` | Get all products |
+| POST | `/api/products` | Add new product |
+| PUT | `/api/products/{id}` | Update product |
+| DELETE | `/api/products/{id}` | Delete product |
+
+### Orders
+| Method | Endpoint | Description |
+|------|---------|------------|
+| POST | `/api/orders` | Place an order |
+| GET | `/api/orders` | View order history |
+
+---
+
+## ⚙️ Running Locally (Without Docker)
+
+```bash
+mvn clean install
+#Docker
+<img width="1919" height="1017" alt="image" src="https://github.com/user-attachments/assets/56d67b90-e12f-454d-bdc9-c5e5a765d2df" />
+#Deployment
+
+Dockerized backend
+
+Deployed using container-based hosting (Render / Docker runtime)
+mvn spring-boot:run
+
